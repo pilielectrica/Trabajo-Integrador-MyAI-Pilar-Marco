@@ -1,4 +1,4 @@
-//#include "crosshair.h"
+#include "crosshair.h"
 //#include "enemigos.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -9,23 +9,10 @@ using namespace std;
 int main() {
 	srand(time(NULL));
 	Event evt;
-	//Crosshair _crosshair;
-	//Enemigos _enemigo;
-	//_crosshair.seteartexturacrosshair();
-	//_enemigo.setearenemigo();
-	int score = 0;
-	bool disparo = false;
-	Text mensajepuntos;
-	Font font;
-	mensajepuntos.setFont(font);
-	mensajepuntos.setCharacterSize(24);
-	mensajepuntos.setPosition(10, 10);
-	mensajepuntos.setFillColor(sf::Color::White);
-	font.loadFromFile("SIXTY.TTF");
-	bool ganaste = false;
+	Crosshair _crosshair;
+	_crosshair.seteartexturacrosshair();
 
-
-	sf::RenderWindow App(sf::VideoMode(600, 600, 32),
+	sf::RenderWindow App(sf::VideoMode(800, 800, 32),
 		"Que ventana horrible");
 	App.setMouseCursorVisible(false);
 
@@ -44,7 +31,7 @@ int main() {
 				break;
 
 			}Vector2f crosshairPosition = _crosshair.mostrarsprite().getPosition();
-			if (_enemigo.aparecer().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+/*			if (_enemigo.aparecer().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
 			{
 				if (evt.type == Event::MouseButtonReleased)
 				{
@@ -57,10 +44,11 @@ int main() {
 				}
 			}
 
-			_enemigo.moverse();
+			_enemigo.moverse();*/
 		}
+	
 
-		if (ganaste)
+		/*if (ganaste)
 		{
 
 			App.clear();
@@ -71,20 +59,22 @@ int main() {
 			App.display();
 		}
 		else
-		{
+		{*/
 			App.clear();
 
-			App.draw(_enemigo.aparecer());
-			App.draw(_crosshair.mostrarsprite());
-			mensajepuntos.setString("Puntaje: " + to_string(score));
-			App.draw(mensajepuntos);
+			//App.draw(_enemigo.aparecer());
+			//App.draw(_crosshair.mostrarsprite());
+			//mensajepuntos.setString("Puntaje: " + to_string(score));
+			//App.draw(mensajepuntos);
 			// Mostramos la ventana
+			App.draw(_crosshair.mostrarsprite());
 			App.display();
 
-		}
+		//}
 
 
 	}
 
 	return 0;
+	}
 

@@ -3,13 +3,14 @@
 #include <iostream>
 using namespace sf;
 using namespace std;
-
 #pragma once
-
-class Jugador
+class Castillo
 {
 private:
-	Sprite Jugador;
-
+	Sprite castillo;
+	Texture textureCastillo;
+public:
+	void setCastillo();
+	Sprite getCastillo();
 };
 
