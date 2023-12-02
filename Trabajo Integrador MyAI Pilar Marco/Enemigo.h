@@ -15,7 +15,7 @@ private:
 	Texture enemigotexture1;
 	Texture enemigotexture2;
 	Texture enemigotexture3;
-	int posicionenemigo1[VENTANAS][COORDENADAS] = //completar con las posiciones de las ventanitas y copiar del tp de las cartas la logica{}, {};
+	//int posicionenemigo1[VENTANAS][COORDENADAS] = //completar con las posiciones de las ventanitas y copiar del tp de las cartas la logica{}, {};
 public:
 	void setEnemigo1();
 	Sprite getEnemigo1();
