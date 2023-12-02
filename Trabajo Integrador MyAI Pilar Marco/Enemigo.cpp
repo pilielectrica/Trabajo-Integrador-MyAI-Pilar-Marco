@@ -10,5 +10,12 @@ Sprite Enemigo::getEnemigo1()
 }
 void Enemigo::setEnemigo1()
 {
+	enemigotexture1.loadFromFile("Enemigo1.png");
+	enemigo1.setTexture(enemigotexture1);
+	enemigo1.setScale(0.7, 0.7);
+}
+
+void Enemigo::enemigo1aparecer()
+{
 
 }
