@@ -23,6 +23,7 @@ int main() {
 	while (App.isOpen()) {
 		while (App.pollEvent(evt)) {
 			Vector2i cursorPosition = Mouse::getPosition(App);
+			Vector2f crosshairPosition = _crosshair.mostrarsprite().getPosition();
 			/////Procesar eventos//////
 			switch (evt.type) {
 				/////Si se cerro la ventana//////
@@ -32,8 +33,11 @@ int main() {
 			case sf::Event::MouseMoved:
 				_crosshair.actualizarPosicionCursor(evt.mouseMove.x, evt.mouseMove.y);
 				break;
+			case Event::MouseButtonPressed:
+				cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
+				break;
 
-			}Vector2f crosshairPosition = _crosshair.mostrarsprite().getPosition();
+			}
 /*			if (_enemigo.aparecer().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
 			{
 				if (evt.type == Event::MouseButtonReleased)

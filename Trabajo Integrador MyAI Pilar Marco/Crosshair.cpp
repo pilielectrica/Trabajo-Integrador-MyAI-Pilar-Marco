@@ -14,6 +14,7 @@ void Crosshair::seteartexturacrosshair()
 void Crosshair::actualizarPosicionCursor(int x, int y)
 {
 	crosshair.setPosition(x, y);
+	
 }
 Sprite Crosshair::mostrarsprite() {
 	return crosshair;
