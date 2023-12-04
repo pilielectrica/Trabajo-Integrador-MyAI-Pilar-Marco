@@ -9,6 +9,6 @@ void Castillo :: setCastillo()
 {
 	textureCastillo.loadFromFile("castle.png");
 	castillo.setTexture(textureCastillo);
-	castillo.setScale(1.5, 1.5);
-	castillo.setPosition(25, 0);
+	castillo.setScale(1.7, 1.7);
+	castillo.setPosition(250, 0);
 }

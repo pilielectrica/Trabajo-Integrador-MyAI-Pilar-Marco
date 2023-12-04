@@ -17,7 +17,7 @@ int main() {
 	Enemigo _enemigo1;
 	_enemigo1.setEnemigo1();
 
-	sf::RenderWindow App(sf::VideoMode(800, 750, 32),
+	sf::RenderWindow App(sf::VideoMode(1366, 768, 32),
 		"Que ventana horrible");
 	App.setMouseCursorVisible(false);
 
@@ -36,7 +36,7 @@ int main() {
 				_crosshair.actualizarPosicionCursor(evt.mouseMove.x, evt.mouseMove.y);
 				break;
 			case Event::MouseButtonPressed:
-				//cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
+				cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
 				break;
 
 			}
