@@ -1,5 +1,5 @@
 #include "crosshair.h"
-//#include "enemigos.h"
+#include "enemigo.h"
 #include "castillo.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -14,6 +14,8 @@ int main() {
 	_crosshair.seteartexturacrosshair();
 	Castillo _castillo;
 	_castillo.setCastillo();
+	Enemigo _enemigo1;
+	_enemigo1.setEnemigo1();
 
 	sf::RenderWindow App(sf::VideoMode(800, 750, 32),
 		"Que ventana horrible");
@@ -34,7 +36,7 @@ int main() {
 				_crosshair.actualizarPosicionCursor(evt.mouseMove.x, evt.mouseMove.y);
 				break;
 			case Event::MouseButtonPressed:
-				cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
+				//cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
 				break;
 
 			}
@@ -52,6 +54,7 @@ int main() {
 			}
 
 			_enemigo.moverse();*/
+			_enemigo1.enemigo1aparecer();
 		}
 	
 
@@ -69,12 +72,13 @@ int main() {
 		{*/
 			App.clear();
 
-			//App.draw(_enemigo.aparecer());
+			
 			//App.draw(_crosshair.mostrarsprite());
 			//mensajepuntos.setString("Puntaje: " + to_string(score));
 			//App.draw(mensajepuntos);
 			// Mostramos la ventana
 			App.draw(_castillo.getCastillo());
+			App.draw(_enemigo1.getEnemigo1());
 			App.draw(_crosshair.mostrarsprite());
 			
 			App.display();

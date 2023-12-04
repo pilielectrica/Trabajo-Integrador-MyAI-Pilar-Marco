@@ -17,5 +17,19 @@ void Enemigo::setEnemigo1()
 
 void Enemigo::enemigo1aparecer()
 {
+    float tiempoPasado = clock.getElapsedTime().asSeconds();
+    if (tiempoPasado >= randomclock) 
+	{
 
+			
+				int k = (rand() % VENTANAS);
+				int coordenadax = posicionenemigo1[k][0];
+				int coordenaday = posicionenemigo1[k][1];
+
+				enemigo1.setPosition(coordenadax, coordenaday);
+				//cout << "x esta en: " << coordenadax << "y estta en: "<< endl << coordenaday << endl;
+		
+        randomclock = (rand() % 900 + 100) / 1000.0f;
+        clock.restart();
+    }
 }
