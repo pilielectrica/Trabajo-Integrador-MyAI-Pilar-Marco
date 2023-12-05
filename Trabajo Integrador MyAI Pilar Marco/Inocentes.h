@@ -16,8 +16,14 @@ private:
 	Texture inocentetexture3;
 public:
 	void setInocente1();
+	void setInocente2();
+	void setInocente3();
 	Sprite getInocente1();
+	Sprite getInocente2();
+	Sprite getInocente3();
 	void setPositionInocente1(int x, int y);
+	void setPositionInocente2(int x, int y);
+	void setPositionInocente3(int x, int y);
 	Inocentes();
 
 };

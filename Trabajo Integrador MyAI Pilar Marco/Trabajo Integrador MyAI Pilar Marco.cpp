@@ -4,6 +4,7 @@
 #include "juego.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 using namespace sf;
 using namespace std;
@@ -16,6 +17,16 @@ int main() {
 	Castillo _castillo;
 	_castillo.setCastillo();
 	Juego jugar;
+	Music music;
+
+	if (!music.openFromFile("PrimerNivelSTTSok.ogg"))
+	{
+		return -1;
+	}// error}
+	music.play();
+	music.setLoop(true);
+	
+	
 
 	sf::RenderWindow App(sf::VideoMode(1366, 768, 32),
 		"Que ventana horrible");
@@ -54,8 +65,9 @@ int main() {
 			}
 
 			_enemigo.moverse();*/
-			jugar.mostrarPersonajes();
+			
 		}
+		jugar.mostrarPersonajes();
 	
 
 		/*if (ganaste)
@@ -78,9 +90,12 @@ int main() {
 			//App.draw(mensajepuntos);
 			// Mostramos la ventana
 			App.draw(_castillo.getFondo());
-			App.draw(_castillo.getCastillo());
+			App.draw(_castillo.getCastillo());			
 			App.draw(jugar.dibujarEnemigo1());
+			App.draw(jugar.dibujarEnemigo2());		
 			App.draw(jugar.dibujarInocente1());
+			App.draw(jugar.dibujarInocente2());
+			App.draw(jugar.dibujarInocente3());
 			App.draw(_crosshair.mostrarsprite());
 			
 			App.display();

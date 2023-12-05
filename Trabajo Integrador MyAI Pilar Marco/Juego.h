@@ -13,16 +13,23 @@ class Juego
 {
 private:
 	Enemigo enemigo1;
+	Enemigo enemigo2;
 	Inocentes inocente1;
+	Inocentes inocente2;
+	Inocentes inocente3;
 ;
 	int posiciones[VENTANAS][COORDENADAS] = { {648,180}, {650,250},{472,387},{598,365},{689,373},{841,390},
 		{468,476},{610,476},{709,476},{856,469},{289,567},{538,571},{783,570},{1030,565} };
 	Clock clock;
-	float randomclock = 0.1f;
+	float randomclock = 0.1;
 public:
 	Juego();
 	void mostrarPersonajes();
 	Sprite dibujarEnemigo1();
+	Sprite dibujarEnemigo2();
 	Sprite dibujarInocente1();
+	Sprite dibujarInocente2();
+	Sprite dibujarInocente3();
+	
 };
 

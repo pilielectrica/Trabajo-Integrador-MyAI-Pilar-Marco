@@ -8,6 +8,7 @@ Sprite Enemigo::getEnemigo1()
 { 
 	return enemigo1;
 }
+
 void Enemigo::setEnemigo1()
 {
 	enemigotexture1.loadFromFile("Enemigo1.png");
@@ -19,9 +20,25 @@ void Enemigo::setPositionEnemigo1(int x, int y)
 {
 	enemigo1.setPosition(x, y);
 }
+void Enemigo::setPositionEnemigo2(int x, int y)
+{
+	enemigo2.setPosition(x, y);
+}
+Sprite Enemigo::getEnemigo2()
+{
+	return enemigo2;
+}
+void Enemigo::setEnemigo2()
+{
+	enemigotexture2.loadFromFile("Enemigo3.png");
+	enemigo2.setTexture(enemigotexture2);
+	enemigo2.setScale(0.5, 0.5);
+}
+
 Enemigo::Enemigo()
 {
 	setEnemigo1();
+	setEnemigo2();
 }
 /*void Enemigo::enemigo1aparecer()
 {
