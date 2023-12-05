@@ -77,6 +77,7 @@ int main() {
 			//mensajepuntos.setString("Puntaje: " + to_string(score));
 			//App.draw(mensajepuntos);
 			// Mostramos la ventana
+			App.draw(_castillo.getFondo());
 			App.draw(_castillo.getCastillo());
 			App.draw(jugar.dibujarEnemigo1());
 			App.draw(jugar.dibujarInocente1());

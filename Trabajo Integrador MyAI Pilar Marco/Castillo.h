@@ -9,8 +9,11 @@ class Castillo
 private:
 	Sprite castillo;
 	Texture textureCastillo;
+	Sprite fondo;
+	Texture textureFondo;
 public:
 	void setCastillo();
 	Sprite getCastillo();
+	Sprite getFondo();
 };
 
