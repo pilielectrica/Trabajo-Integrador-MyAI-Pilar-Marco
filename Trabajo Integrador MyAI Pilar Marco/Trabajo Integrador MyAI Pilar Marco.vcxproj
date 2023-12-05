@@ -136,6 +136,7 @@
     <ClCompile Include="Crosshair.cpp" />
     <ClCompile Include="Enemigo.cpp" />
     <ClCompile Include="Inocentes.cpp" />
+    <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Trabajo Integrador MyAI Pilar Marco.cpp" />
   </ItemGroup>
@@ -144,6 +145,7 @@
     <ClInclude Include="Crosshair.h" />
     <ClInclude Include="Enemigo.h" />
     <ClInclude Include="Inocentes.h" />
+    <ClInclude Include="Juego.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

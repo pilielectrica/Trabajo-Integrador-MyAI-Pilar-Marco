@@ -1,6 +1,7 @@
 #include "crosshair.h"
 #include "enemigo.h"
 #include "castillo.h"
+#include "juego.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -14,8 +15,7 @@ int main() {
 	_crosshair.seteartexturacrosshair();
 	Castillo _castillo;
 	_castillo.setCastillo();
-	Enemigo _enemigo1;
-	_enemigo1.setEnemigo1();
+	Juego jugar;
 
 	sf::RenderWindow App(sf::VideoMode(1366, 768, 32),
 		"Que ventana horrible");
@@ -54,7 +54,7 @@ int main() {
 			}
 
 			_enemigo.moverse();*/
-			_enemigo1.enemigo1aparecer();
+			jugar.mostrarPersonajes();
 		}
 	
 
@@ -78,7 +78,7 @@ int main() {
 			//App.draw(mensajepuntos);
 			// Mostramos la ventana
 			App.draw(_castillo.getCastillo());
-			App.draw(_enemigo1.getEnemigo1());
+			App.draw(jugar.mostrarEnemigo1());
 			App.draw(_crosshair.mostrarsprite());
 			
 			App.display();

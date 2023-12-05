@@ -15,7 +15,15 @@ void Enemigo::setEnemigo1()
 	enemigo1.setScale(0.2, 0.2);
 }
 
-void Enemigo::enemigo1aparecer()
+void Enemigo::setPositionEnemigo1(int x, int y)
+{
+	enemigo1.setPosition(x, y);
+}
+Enemigo::Enemigo()
+{
+	setEnemigo1();
+}
+/*void Enemigo::enemigo1aparecer()
 {
     float tiempoPasado = clock.getElapsedTime().asSeconds();
     if (tiempoPasado >= randomclock) 
@@ -34,4 +42,4 @@ void Enemigo::enemigo1aparecer()
         randomclock = (rand() % 900 + 100) / 1000.0f;
         clock.restart();
     }
-}
+}*/
