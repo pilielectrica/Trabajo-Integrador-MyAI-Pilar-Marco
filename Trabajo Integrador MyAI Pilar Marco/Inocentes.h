@@ -1,5 +1,5 @@
 
-/*#include <SFML/Window.hpp>
+#include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 using namespace sf;
@@ -17,8 +17,8 @@ private:
 public:
 	void setInocente1();
 	Sprite getInocente1();
-	
+	void setPositionInocente1(int x, int y);
+	Inocentes();
 
 };
 
-*/

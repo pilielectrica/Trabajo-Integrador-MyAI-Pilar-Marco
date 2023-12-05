@@ -78,7 +78,8 @@ int main() {
 			//App.draw(mensajepuntos);
 			// Mostramos la ventana
 			App.draw(_castillo.getCastillo());
-			App.draw(jugar.mostrarEnemigo1());
+			App.draw(jugar.dibujarEnemigo1());
+			App.draw(jugar.dibujarInocente1());
 			App.draw(_crosshair.mostrarsprite());
 			
 			App.display();
