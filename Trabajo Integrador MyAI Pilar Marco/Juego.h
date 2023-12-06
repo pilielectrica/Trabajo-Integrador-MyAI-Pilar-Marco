@@ -22,6 +22,10 @@ private:
 		{468,476},{610,476},{709,476},{856,469},{289,567},{538,571},{783,570},{1030,565} };
 	Clock clock;
 	float randomclock = 0.1;
+	Clock clockdesaparecernemigo;
+	float randomclockenemigo = 1;
+	bool clockfrenado = false;
+
 public:
 	Juego();
 	void mostrarPersonajes();
@@ -30,6 +34,8 @@ public:
 	Sprite dibujarInocente1();
 	Sprite dibujarInocente2();
 	Sprite dibujarInocente3();
+	bool enemigoMuere(bool estadoenemigo);
+	void frenarClock();
 	
 };
 
