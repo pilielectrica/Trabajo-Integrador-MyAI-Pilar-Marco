@@ -3,6 +3,7 @@
 #include <iostream>
 #include "enemigo.h"
 #include "inocentes.h"
+#include "animaciones.h"
 #define VENTANAS 14
 #define COORDENADAS 2
 using namespace sf;
@@ -17,6 +18,7 @@ private:
 	Inocentes inocente1;
 	Inocentes inocente2;
 	Inocentes inocente3;
+	Animaciones animacionenemigo1;
 ;
 	int posiciones[VENTANAS][COORDENADAS] = { {648,180}, {650,250},{472,387},{598,365},{689,373},{841,390},
 		{468,476},{610,476},{709,476},{856,469},{289,567},{538,571},{783,570},{1030,565} };
@@ -25,6 +27,7 @@ private:
 	Clock clockdesaparecernemigo;
 	float randomclockenemigo = 1;
 	bool clockfrenado = false;
+	bool frenarenemigo = false;
 
 public:
 	Juego();
@@ -34,7 +37,7 @@ public:
 	Sprite dibujarInocente1();
 	Sprite dibujarInocente2();
 	Sprite dibujarInocente3();
-	bool enemigoMuere(bool estadoenemigo);
+	void enemigoMuere();
 	void frenarClock();
 	
 };

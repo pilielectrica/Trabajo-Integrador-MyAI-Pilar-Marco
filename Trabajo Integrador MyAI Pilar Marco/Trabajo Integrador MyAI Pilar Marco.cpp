@@ -47,24 +47,23 @@ int main() {
 				_crosshair.actualizarPosicionCursor(evt.mouseMove.x, evt.mouseMove.y);
 				break;
 			case Event::MouseButtonPressed:
-				cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
+				//cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
 				break;
 
 			}
-/*			if (_enemigo.aparecer().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+			if (jugar.dibujarEnemigo1().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
 			{
-				if (evt.type == Event::MouseButtonReleased)
+				if (evt.type == Event::MouseButtonPressed)
 				{
-
-					score += 1;
+					cout << "matamos un enemigo" << endl;
+					jugar.enemigoMuere();
+					/*score += 1;
 					if (score >= 5)
 					{
 						ganaste = true;
-					}
+					}*/
 				}
 			}
-
-			_enemigo.moverse();*/
 			
 		}
 		jugar.mostrarPersonajes();

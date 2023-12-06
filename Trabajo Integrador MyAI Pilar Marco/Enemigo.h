@@ -13,6 +13,7 @@ private:
 	Sprite enemigo2;
 	Texture enemigotexture1;
 	Texture enemigotexture2;
+
 	//Clock clock;
 	//float randomclock = 0.1f;
 	//int posicionenemigo1[VENTANAS][COORDENADAS] = { {648,180}, {650,250},{472,387},{598,365},{689,373},{845,490},
@@ -24,6 +25,7 @@ public:
 	Sprite getEnemigo2();
 	void setPositionEnemigo1(int x, int y);
 	void setPositionEnemigo2(int x, int y);
+	void _getTexture();
 	Enemigo();
 	//void enemigo1aparecer();
 	//void enemigo2aparecer();

@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animaciones.cpp" />
     <ClCompile Include="Castillo.cpp" />
     <ClCompile Include="Crosshair.cpp" />
     <ClCompile Include="Enemigo.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="Trabajo Integrador MyAI Pilar Marco.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animaciones.h" />
     <ClInclude Include="Castillo.h" />
     <ClInclude Include="Crosshair.h" />
     <ClInclude Include="Enemigo.h" />
