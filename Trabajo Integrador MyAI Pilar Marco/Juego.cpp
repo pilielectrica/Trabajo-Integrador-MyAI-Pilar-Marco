@@ -5,7 +5,7 @@
 #include "Juego.h"
 
 
-Juego::Juego() : enemigo1(),inocente1(), animacionenemigo1(enemigo1.getEnemigo1())
+Juego::Juego() : enemigo1(),inocente1(), animacionenemigo1(1)
 {
 
 }
@@ -98,7 +98,7 @@ void Juego::mostrarPersonajes()
 				clock.restart();
 
 			}
-			randomclock = (rand() % 400 + 100) / 1000.0f;
+			randomclock = (rand() % 900 + 100) / 1000.0f;
 			clock.restart();
 
 
@@ -125,10 +125,22 @@ void Juego::frenarClock()
 	clockfrenado = true;
 }
 void Juego::enemigoMuere()
-{
+{   
 	clockfrenado = true;
 	animacionenemigo1.setTexturaEnemigo1Inicial(enemigo1.getEnemigo1());
-	animacionenemigo1.enemigo1animado(enemigo1.getEnemigo1());
+
+	if (clockenemigomurio.getElapsedTime().asSeconds() <= tiempoenemigomurio)
+	{
+		animacionenemigo1.enemigo1animado(enemigo1.getEnemigo1());
+	}
+	
+	if (clockenemigomurio.getElapsedTime().asSeconds() >= tiempoenemigomurio)
+	{
+       clockfrenado = false;
+	}
+	//
 	//clockfrenado = false;
+
+	
 }
 

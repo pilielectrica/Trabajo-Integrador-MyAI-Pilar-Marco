@@ -16,25 +16,36 @@ void Animaciones::setTexturaEnemigo1Inicial(Sprite _enemigo1)
 
 void Animaciones::enemigo1animado(Sprite& _enemigo1)
 {
-    if (clockanimacion.getElapsedTime().asSeconds() >= duracionframe1) {
+    
 
-        
-        if (_enemigo1.getTexture() == &texturanormal) {
+if (clockanimacion.getElapsedTime().asSeconds() >= duracionframe1) {
+
+
+
+  if (_enemigo1.getTexture() == &texturanormal) {
             _enemigo1.setTexture(enemigo1frame1);
+            
         }
         else if (_enemigo1.getTexture() == &enemigo1frame1) {
             _enemigo1.setTexture(enemigo1frame2);
+            
         }
-        else {
+        else{
             _enemigo1.setTexture(texturanormal);
-        }
 
-        clockanimacion.restart();
-    }
+        }
+  clockanimacion.restart();
+  
+  
+}
+        
+      
+    
 }
 	
-Animaciones::Animaciones(Sprite _enemigo1_)
+Animaciones::Animaciones(float duracion)
 {
+    duracion = duracionframe1;
 	setTexturesAnimacion();
 }
 Animaciones::Animaciones() {}
