@@ -13,8 +13,9 @@ private:
 	Clock clockanimacion;
 	float duracionframe1 = 0.5;
 	float duracionframe2 = 1;
+	float duracionframenormal = 1.5;
 public:
-	void enemigo1animado(Sprite _enemigo1);
+	void enemigo1animado(Sprite& _enemigo1);
 	Animaciones(Sprite _enemigo1_);
 	void setTexturesAnimacion();
 	Animaciones();

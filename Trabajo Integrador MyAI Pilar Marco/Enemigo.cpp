@@ -9,7 +9,7 @@ void Enemigo::_getTexture()
 	enemigo1.getTexture();
 }
 
-Sprite Enemigo::getEnemigo1()
+Sprite& Enemigo::getEnemigo1()
 { 
 	return enemigo1;
 }

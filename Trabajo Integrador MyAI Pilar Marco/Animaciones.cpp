@@ -10,7 +10,7 @@ void Animaciones::setTexturesAnimacion()
 }
 
 
-void Animaciones::enemigo1animado(Sprite _enemigo1)
+void Animaciones::enemigo1animado(Sprite& _enemigo1)
 {
 	if (clockanimacion.getElapsedTime().asSeconds() >= duracionframe1)
 	{
@@ -20,7 +20,8 @@ void Animaciones::enemigo1animado(Sprite _enemigo1)
 		{
 			_enemigo1.setTexture(enemigo1frame2);
 		} 
-		else { _enemigo1.setTexture(texturanormal); }
+		else if(clockanimacion.getElapsedTime().asSeconds() >= duracionframenormal)
+		{ _enemigo1.setTexture(texturanormal); }
 
 		clockanimacion.restart();
 	}
