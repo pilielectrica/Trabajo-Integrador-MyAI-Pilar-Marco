@@ -9,11 +9,14 @@ class Animaciones
 private:
 	Texture enemigo1frame1;
 	Texture enemigo1frame2;
+	Texture texturanormal;
 	Clock clockanimacion;
-	float duracionframe = 0.5;
-	float duracionanimacion = 1;
+	float duracionframe1 = 0.5;
+	float duracionframe2 = 1;
 public:
 	void enemigo1animado(Sprite _enemigo1);
 	Animaciones(Sprite _enemigo1_);
+	void setTexturesAnimacion();
+	Animaciones();
 };
 

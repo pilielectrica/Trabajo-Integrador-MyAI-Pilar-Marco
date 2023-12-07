@@ -2,6 +2,7 @@
 #include "enemigo.h"
 #include "castillo.h"
 #include "juego.h"
+#include "animaciones.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -18,6 +19,16 @@ int main() {
 	_castillo.setCastillo();
 	Juego jugar;
 	Music music;
+	Texture frame1enemigo1;
+	Texture frame2enemigo1; 
+	Texture frame3enemigo1;
+	frame1enemigo1.loadFromFile("en1frame1.png"); 
+	frame2enemigo1.loadFromFile("en1frame2.png");
+	frame3enemigo1.loadFromFile("Enemigo1.png");
+	
+	Clock clock;
+	float frameDuration1 = 0.5f;
+	float frameDuration2 = 1;
 
 	if (!music.openFromFile("PrimerNivelSTTSok.ogg"))
 	{
@@ -56,7 +67,8 @@ int main() {
 				if (evt.type == Event::MouseButtonPressed)
 				{
 					cout << "matamos un enemigo" << endl;
-					jugar.enemigoMuere();
+
+					jugar.enemigoMuere(); 
 					/*score += 1;
 					if (score >= 5)
 					{

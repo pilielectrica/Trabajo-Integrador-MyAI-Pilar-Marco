@@ -13,6 +13,7 @@ private:
 	Sprite enemigo2;
 	Texture enemigotexture1;
 	Texture enemigotexture2;
+	
 
 	//Clock clock;
 	//float randomclock = 0.1f;
@@ -26,6 +27,7 @@ public:
 	void setPositionEnemigo1(int x, int y);
 	void setPositionEnemigo2(int x, int y);
 	void _getTexture();
+	bool texturaboolenemigo();
 	Enemigo();
 	//void enemigo1aparecer();
 	//void enemigo2aparecer();

@@ -49,7 +49,7 @@ void Juego::mostrarPersonajes()
 		
 
 		if (i == k || i == l || k == l || i == m || k == m || l == m || n == m || n == l || n == k || n == i) { superposicion = true; }
-if (tiempoPasado >= randomclock && clockfrenado == false){
+if (tiempoPasado >= randomclock&& clockfrenado == false){
 		if (!superposicion) {
 			
 
@@ -96,6 +96,7 @@ if (tiempoPasado >= randomclock && clockfrenado == false){
 	}
 		randomclock = (rand() % 400 + 100) / 1000.0f;
 		    clock.restart();
+	
 
 
 		//cout << "x esta en: " << coordenadax << "y estta en: " << endl << coordenaday << endl;
@@ -121,6 +122,7 @@ void Juego::frenarClock()
 void Juego::enemigoMuere()
 {
 	clockfrenado = true;
+	animacionenemigo1.enemigo1animado(enemigo1.getEnemigo1());
 	animacionenemigo1.enemigo1animado(enemigo1.getEnemigo1());
 	clockfrenado = false;
 }

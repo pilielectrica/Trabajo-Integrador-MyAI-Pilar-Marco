@@ -17,6 +17,7 @@ Sprite Enemigo::getEnemigo1()
 void Enemigo::setEnemigo1()
 {
 	enemigotexture1.loadFromFile("Enemigo1.png");
+	
 	enemigo1.setTexture(enemigotexture1);
 	enemigo1.setScale(0.2, 0.2);
 }
@@ -38,6 +39,10 @@ void Enemigo::setEnemigo2()
 	enemigotexture2.loadFromFile("Enemigo3.png");
 	enemigo2.setTexture(enemigotexture2);
 	enemigo2.setScale(0.5, 0.5);
+}
+bool Enemigo::texturaboolenemigo()
+{
+	if (enemigo1.getTexture() == &enemigotexture1) { return true; }
 }
 
 Enemigo::Enemigo()
