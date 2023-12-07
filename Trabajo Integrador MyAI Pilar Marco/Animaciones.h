@@ -12,11 +12,14 @@ private:
 	Texture texturanormal;
 	Clock clockanimacion = Clock();
 	float duracionframe1 = 1;
+	bool dalequeva = false;
+	int cantidadCambiosTextura = 0;
 public:
 	void enemigo1animado(Sprite& _enemigo1);
 	Animaciones(float duracion);
 	void setTexturesAnimacion();
 	void setTexturaEnemigo1Inicial(Sprite _enemigo1);
+	int getCantidadCambiosTextura();
 	Animaciones();
 };
 
