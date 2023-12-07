@@ -25,7 +25,7 @@ private:
 	Clock clock;
 	float randomclock = 0.4;
 	Clock clockenemigomurio = Clock();
-	int tiempoenemigomurio = 6;
+	int tiempoenemigomurio = 3;
 	bool clockfrenado = false;
 	bool enemigomuere = false;
 

@@ -124,25 +124,36 @@ void Juego::mostrarPersonajes()
 void Juego::enemigoMuere()
 {
 
-clockfrenado = true;
 
+	
 
-			animacionenemigo1.setTexturaEnemigo1Inicial(enemigo1.getEnemigo1());
+animacionenemigo1.setTexturaEnemigo1Inicial(enemigo1.getEnemigo1()); 
 
-	if (clockenemigomurio.getElapsedTime().asSeconds() <= tiempoenemigomurio && animacionenemigo1.getCantidadCambiosTextura() <= 3)
-	{
+if (clockenemigomurio.getElapsedTime().asSeconds() <= tiempoenemigomurio && animacionenemigo1.getCantidadCambiosTextura() <= 3)
+{ 
+	
+
+        clockfrenado = true;
 
 		animacionenemigo1.enemigo1animado(enemigo1.getEnemigo1());
 		
 			
-    }
 
-	else 
-		
+			}
+	
 
-animacionenemigo1.setTexturaEnemigo1Inicial(enemigo1.getEnemigo1());
+else
+
+
+{
+	animacionenemigo1.setTexturaEnemigo1Inicial(enemigo1.getEnemigo1());
 	clockfrenado = false;
-	clockenemigomurio.restart();
+}
+
+clockenemigomurio.restart();
+	
+	
+	
 
 		
 	
