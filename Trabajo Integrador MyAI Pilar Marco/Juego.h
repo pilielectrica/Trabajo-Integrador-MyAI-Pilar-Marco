@@ -24,10 +24,9 @@ private:
 		{468,476},{610,476},{709,476},{856,469},{289,567},{538,571},{783,570},{1030,565} };
 	Clock clock;
 	float randomclock = 0.4;
-	Clock clockenemigomurio;
-	float tiempoenemigomurio = 4;
+	Clock clockenemigomurio = Clock();
+	int tiempoenemigomurio = 3;
 	bool clockfrenado = false;
-	bool frenarenemigo = false;
 
 public:
 	Juego();

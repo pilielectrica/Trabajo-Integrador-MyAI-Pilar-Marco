@@ -16,7 +16,6 @@ void Animaciones::setTexturaEnemigo1Inicial(Sprite _enemigo1)
 
 void Animaciones::enemigo1animado(Sprite& _enemigo1)
 {
-    
 
 if (clockanimacion.getElapsedTime().asSeconds() >= duracionframe1) {
 
