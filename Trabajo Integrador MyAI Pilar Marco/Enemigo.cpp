@@ -30,7 +30,7 @@ void Enemigo::setPositionEnemigo2(int x, int y)
 {
 	enemigo2.setPosition(x, y);
 }
-Sprite Enemigo::getEnemigo2()
+Sprite& Enemigo::getEnemigo2()
 {
 	return enemigo2;
 }

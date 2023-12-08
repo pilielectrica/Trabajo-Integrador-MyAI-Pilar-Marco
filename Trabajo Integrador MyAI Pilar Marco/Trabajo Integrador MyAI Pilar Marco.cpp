@@ -19,10 +19,13 @@ int main() {
 	_castillo.setCastillo();
 	Juego jugar;
 	Music music;
-	bool disparosobrenemigo = false;
+	bool disparosobrenemigo1 = false;
+	bool disparosobrenemigo2 = false;
 	Clock enemigohamuerto;
 	int tiempotranscurrido = 1.5;
 	bool enemigomuerto = false;
+	int score = 0;
+	bool ganaste = false;
 
 	if (!music.openFromFile("PrimerNivelSTTSok.ogg"))
 	{
@@ -60,26 +63,35 @@ int main() {
 			{
 				if (evt.type == Event::MouseButtonPressed)
 				{
-					cout << "matamos un enemigo" << endl;
-
-					
-					disparosobrenemigo = true;				
-					
-					/*score += 1;
-					if (score >= 5)
+					cout << "matamos un enemigo" << endl;						
+					disparosobrenemigo1 = true;								
+					score += 1;
+					if (score >= 20)
 					{
 						ganaste = true;
-					}*/
+					}
+				}
+			}
+			if (jugar.dibujarEnemigo2().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+			{
+				if (evt.type == Event::MouseButtonPressed)
+				{
+					cout << "matamos un enemigo" << endl;
+					disparosobrenemigo2 = true;
+					score += 1;
+					if (score >= 20)
+					{
+						ganaste = true;
+					}
 				}
 			}
 			
 		}
 		jugar.mostrarPersonajes();
-		if (disparosobrenemigo == true) {
-			jugar.enemigoMuere(); 
-			//disparosobrenemigo = false;
-			
-			
+		if (disparosobrenemigo1 == true) {
+			jugar.enemigo1Muere();			
+		}if (disparosobrenemigo2 == true) {
+			jugar.enemigo2Muere();
 		}
 	
 

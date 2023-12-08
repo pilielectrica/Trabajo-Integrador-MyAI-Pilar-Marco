@@ -23,7 +23,7 @@ public:
 	void setEnemigo1();
 	void setEnemigo2();
 	Sprite& getEnemigo1();
-	Sprite getEnemigo2();
+	Sprite& getEnemigo2();
 	void setPositionEnemigo1(int x, int y);
 	void setPositionEnemigo2(int x, int y);
 	void _getTexture();
