@@ -25,10 +25,11 @@ private:
 	Clock clock;
 	float randomclock = 0.4;
 	Clock clockenemigomurio = Clock();
-	int tiempoenemigomurio = 3;
+	int tiempoenemigomurio = 1.5;
 	bool clockfrenado = false;
 	bool enemigomuere = false;
-
+	bool empezardenuevo = false;
+bool endanimacion = false;
 public:
 	Juego();
 	void mostrarPersonajes();
@@ -36,9 +37,13 @@ public:
 	Sprite dibujarEnemigo2();
 	Sprite dibujarInocente1();
 	Sprite dibujarInocente2();
+	bool getClockFrenado();
 	Sprite dibujarInocente3();
 	void enemigoMuere();
 	void frenarClock();
+	void setCantidadCambiosTextura();
+	bool getEndAnimacion();
+	
 	
 };
 

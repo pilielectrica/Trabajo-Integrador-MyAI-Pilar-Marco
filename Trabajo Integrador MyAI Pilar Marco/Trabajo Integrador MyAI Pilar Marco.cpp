@@ -20,6 +20,9 @@ int main() {
 	Juego jugar;
 	Music music;
 	bool disparosobrenemigo = false;
+	Clock enemigohamuerto;
+	int tiempotranscurrido = 1.5;
+	bool enemigomuerto = false;
 
 	if (!music.openFromFile("PrimerNivelSTTSok.ogg"))
 	{
@@ -59,7 +62,9 @@ int main() {
 				{
 					cout << "matamos un enemigo" << endl;
 
-					disparosobrenemigo = true;
+					
+					disparosobrenemigo = true;				
+					
 					/*score += 1;
 					if (score >= 5)
 					{
@@ -70,7 +75,12 @@ int main() {
 			
 		}
 		jugar.mostrarPersonajes();
-		if (disparosobrenemigo == true) { jugar.enemigoMuere(); disparosobrenemigo == false; }
+		if (disparosobrenemigo == true) {
+			jugar.enemigoMuere(); 
+			//disparosobrenemigo = false;
+			
+			
+		}
 	
 
 		/*if (ganaste)

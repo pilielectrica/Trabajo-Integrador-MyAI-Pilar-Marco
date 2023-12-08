@@ -33,6 +33,7 @@ void Animaciones::enemigo1animado(Sprite& _enemigo1)
         else{
             _enemigo1.setTexture(texturanormal); 
             cantidadCambiosTextura++;
+           
             
 
         }
@@ -52,7 +53,7 @@ void  Animaciones:: setCantidadCambiosTextura(int cantidad)
 }
 Animaciones::Animaciones(float duracion)
 {
-    duracion = duracionframe1;
+    duracionframe1 = duracion;
 	setTexturesAnimacion();
 }
 Animaciones::Animaciones() {}

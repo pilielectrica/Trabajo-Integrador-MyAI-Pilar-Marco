@@ -11,7 +11,7 @@ private:
 	Texture enemigo1frame2;
 	Texture texturanormal;
 	Clock clockanimacion = Clock();
-	float duracionframe1 = 1;
+	float duracionframe1;
 	bool dalequeva = false;
 	
 public:

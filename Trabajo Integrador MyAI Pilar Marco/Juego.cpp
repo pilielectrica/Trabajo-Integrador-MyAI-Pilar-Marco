@@ -5,7 +5,7 @@
 #include "Juego.h"
 
 
-Juego::Juego() : enemigo1(),inocente1(), animacionenemigo1(1)
+Juego::Juego() : enemigo1(),inocente1(), animacionenemigo1(0.5)
 {
 
 }
@@ -102,61 +102,34 @@ void Juego::mostrarPersonajes()
 				clock.restart();
 
 
-
-				//cout << "x esta en: " << coordenadax << "y estta en: " << endl << coordenaday << endl;
-				//enemigo1.setPosition(posicionenemigo1[13][0], posicionenemigo1[13][1]);
-
-
 			}
-		}/*if (clockfrenado == true)
-				{
-				/*randomclock = 5;
-				if (tiempoPasado >= randomclock) {
-				randomclock = (rand() % 400 + 100) / 1000.0f; clock.restart(); clockfrenado = false;}
-
-
-				}
-		*/
+		}
 
 	
 }
 
 void Juego::enemigoMuere()
 {
-
-
-	
-
-animacionenemigo1.setTexturaEnemigo1Inicial(enemigo1.getEnemigo1()); 
+animacionenemigo1.setTexturaEnemigo1Inicial(enemigo1.getEnemigo1());
 
 if (clockenemigomurio.getElapsedTime().asSeconds() <= tiempoenemigomurio && animacionenemigo1.getCantidadCambiosTextura() <= 3)
-{ 
-	
-
-        clockfrenado = true;
-
-		animacionenemigo1.enemigo1animado(enemigo1.getEnemigo1());
-		
-			
-
-			}
-	
-
-else
-
-
-{
+{ 	
+    clockfrenado = true;          
+	animacionenemigo1.enemigo1animado(enemigo1.getEnemigo1());
+}	
+else if (animacionenemigo1.getCantidadCambiosTextura() >= 3)
+{   	
 	animacionenemigo1.setTexturaEnemigo1Inicial(enemigo1.getEnemigo1());
-	clockfrenado = false;
+	clockfrenado = false;	
+	enemigo1.setPositionEnemigo1(7000, 8000);
 }
-
-clockenemigomurio.restart();
-	
-	
-	
-
-		
-	
+clockenemigomurio.restart();	
 }
-
-
+bool Juego::getClockFrenado()
+{
+	return clockfrenado;
+}
+bool Juego::getEndAnimacion()
+{
+	return endanimacion;
+}
