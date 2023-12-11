@@ -11,8 +11,12 @@ class Enemigo
 private:
 	Sprite enemigo1;
 	Sprite enemigo2;
+	Sprite enemigo3;
+	Sprite enemigo4;
 	Texture enemigotexture1;
 	Texture enemigotexture2;
+	Texture enemigotexture3;
+	Texture enemigotexture4;
 	
 
 	//Clock clock;
@@ -22,12 +26,16 @@ private:
 public:
 	void setEnemigo1();
 	void setEnemigo2();
+	void setEnemigo3();
+	void setEnemigo4();
 	Sprite& getEnemigo1();
 	Sprite& getEnemigo2();
+	Sprite& getEnemigo3();
+	Sprite& getEnemigo4();
 	void setPositionEnemigo1(int x, int y);
 	void setPositionEnemigo2(int x, int y);
-	void _getTexture();
-	bool texturaboolenemigo();
+	void setPositionEnemigo3(int x, int y);
+	void setPositionEnemigo4(int x, int y);
 	Enemigo();
 	//void enemigo1aparecer();
 	//void enemigo2aparecer();

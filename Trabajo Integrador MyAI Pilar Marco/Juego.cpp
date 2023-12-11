@@ -5,7 +5,7 @@
 #include "Juego.h"
 
 
-Juego::Juego() : enemigo1(),enemigo2(),inocente1(), animacionenemigo1(0.5), animacionenemigo2(0.5)
+Juego::Juego() : enemigo1(),enemigo2(),inocente1(),enemigo3(),enemigo4(), animacionenemigo1(0.5), animacionenemigo2(0.5)
 {
 
 }
@@ -35,6 +35,16 @@ Sprite Juego::dibujarEnemigo2()
 	return enemigo2.getEnemigo2();
 
 }
+Sprite Juego::dibujarEnemigo3()
+{
+	return enemigo3.getEnemigo3();
+
+}
+Sprite Juego::dibujarEnemigo4()
+{
+	return enemigo4.getEnemigo4();
+
+}
 void Juego::mostrarPersonajes()
 {
 	if (clockfrenado == false)
@@ -44,11 +54,11 @@ void Juego::mostrarPersonajes()
 			int l = (rand() % VENTANAS);
 			int m = (rand() % VENTANAS);
 			int n = (rand() % VENTANAS);
+			int o = (rand() % VENTANAS);
+			int p = (rand() % VENTANAS);
 			bool superposicion = false;
 
 			float tiempoPasado = clock.getElapsedTime().asSeconds();
-
-
 
 
 			if (i == k || i == l || k == l || i == m || k == m || l == m || n == m || n == l || n == k || n == i) { superposicion = true; }
@@ -97,6 +107,17 @@ void Juego::mostrarPersonajes()
 					}
 					clock.restart();
 
+					coordenadax = posiciones[o][0];
+					coordenaday = posiciones[o][1];
+
+
+					if (enemigo1murio == true && enemigo2murio == true && (numeroazar == 1 || numeroazar == 7 || numeroazar == 8))
+					{
+						enemigo3.setPositionEnemigo3(coordenadax, coordenaday);
+					}
+					clock.restart();
+
+
 				}
 				randomclock = (rand() % 900 + 100) / 1000.0f;
 				clock.restart();
@@ -123,6 +144,7 @@ else if (animacionenemigo1.getCantidadCambiosTextura() >= 3)
 	clockfrenado = false;	
 	//animacionenemigo1.setCantidadCambiosTextura(0);
 	enemigo1.setPositionEnemigo1(7000, 8000);
+	enemigo1murio = true;
 }
 clockenemigomurio.restart();	
 }
@@ -140,6 +162,7 @@ void Juego::enemigo2Muere()
 		animacionenemigo2.setTexturaEnemigo2Inicial(enemigo2.getEnemigo2());
 		clockfrenado = false;
 		enemigo2.setPositionEnemigo2(7000, 8000);
+		enemigo2murio = true;
 	}
 	clockenemigomurio2.restart();
 }

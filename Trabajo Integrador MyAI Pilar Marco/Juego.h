@@ -15,11 +15,15 @@ class Juego
 private:
 	Enemigo enemigo1;
 	Enemigo enemigo2;
+	Enemigo enemigo3;
+	Enemigo enemigo4;
 	Inocentes inocente1;
 	Inocentes inocente2;
 	Inocentes inocente3;
 	Animaciones animacionenemigo1;
 	Animaciones animacionenemigo2;
+	Animaciones animacionenemigo3;
+	Animaciones animacionenemigo4;
 	;
 	int posiciones[VENTANAS][COORDENADAS] = { {648,180}, {650,250},{472,387},{598,365},{689,373},{841,390},
 		{468,476},{610,476},{709,476},{856,469},{289,567},{538,571},{783,570},{1030,565} };
@@ -37,16 +41,22 @@ public:
 	void mostrarPersonajes();
 	Sprite dibujarEnemigo1();
 	Sprite dibujarEnemigo2();
+	Sprite dibujarEnemigo3();
+	Sprite dibujarEnemigo4();
 	Sprite dibujarInocente1();
 	Sprite dibujarInocente2();
 	bool getClockFrenado();
 	Sprite dibujarInocente3();
 	void enemigo1Muere();
 	void enemigo2Muere();
+	void enemigo3Muere();
+	void enemigo4Muere();
 	void frenarClock();
 	void setCantidadCambiosTextura();
 	int getCantidadCambiosTextura();
 	bool getEndAnimacion();
+	bool enemigo1murio = false;
+	bool enemigo2murio = false;
 	
 	
 };

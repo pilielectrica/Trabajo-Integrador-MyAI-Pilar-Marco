@@ -4,10 +4,6 @@
 #include "Enemigo.h"
 
 
-void Enemigo::_getTexture()
-{
-	enemigo1.getTexture();
-}
 
 Sprite& Enemigo::getEnemigo1()
 { 
@@ -36,37 +32,48 @@ Sprite& Enemigo::getEnemigo2()
 }
 void Enemigo::setEnemigo2()
 {
-	enemigotexture2.loadFromFile("Enemigo3.png");
+	enemigotexture2.loadFromFile("Enemigo2.png");
 	enemigo2.setTexture(enemigotexture2);
 	enemigo2.setScale(0.5, 0.5);
 }
-bool Enemigo::texturaboolenemigo()
+Sprite& Enemigo::getEnemigo3()
 {
-	if (enemigo1.getTexture() == &enemigotexture1) { return true; }
+	return enemigo3;
 }
 
+void Enemigo::setEnemigo3()
+{
+	enemigotexture3.loadFromFile("Enemigo3.png");
+
+	enemigo3.setTexture(enemigotexture3);
+	enemigo3.setScale(0.2, 0.2);
+}
+
+void Enemigo::setPositionEnemigo3(int x, int y)
+{
+	enemigo3.setPosition(x, y);
+}
+Sprite& Enemigo::getEnemigo4()
+{
+	return enemigo4;
+}
+
+void Enemigo::setEnemigo4()
+{
+	enemigotexture4.loadFromFile("Enemigo4.png");
+
+	enemigo4.setTexture(enemigotexture4);
+	enemigo4.setScale(0.2, 0.2);
+}
+
+void Enemigo::setPositionEnemigo4(int x, int y)
+{
+	enemigo4.setPosition(x, y);
+}
 Enemigo::Enemigo()
 {
 	setEnemigo1();
 	setEnemigo2();
+	setEnemigo3();
+	setEnemigo4();
 }
-/*void Enemigo::enemigo1aparecer()
-{
-    float tiempoPasado = clock.getElapsedTime().asSeconds();
-    if (tiempoPasado >= randomclock) 
-	{
-
-			
-				int k = (rand() % VENTANAS);
-				int coordenadax = posicionenemigo1[k][0];
-				int coordenaday = posicionenemigo1[k][1];
-
-				enemigo1.setPosition(coordenadax, coordenaday);
-				
-				cout << "x esta en: " << coordenadax << "y estta en: "<< endl << coordenaday << endl;
-		//enemigo1.setPosition(posicionenemigo1[13][0], posicionenemigo1[13][1]);
-		
-        randomclock = (rand() % 900 + 100) / 1000.0f;
-        clock.restart();
-    }
-}*/

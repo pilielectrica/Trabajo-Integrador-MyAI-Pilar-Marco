@@ -121,6 +121,7 @@ int main() {
 			App.draw(jugar.dibujarInocente1());
 			App.draw(jugar.dibujarInocente2());
 			App.draw(jugar.dibujarInocente3());
+			App.draw(jugar.dibujarEnemigo3());
 			App.draw(_crosshair.mostrarsprite());
 			
 			App.display();
