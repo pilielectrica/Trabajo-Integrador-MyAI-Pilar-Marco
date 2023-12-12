@@ -20,6 +20,7 @@ private:
 	Texture enemigo3frame5;
 	Texture texturenormal3;
 	Texture enemigo4frame1;
+	Texture enemigo4frame2;
 	Texture texturenormal4;
 
 	Clock clockanimacion = Clock();

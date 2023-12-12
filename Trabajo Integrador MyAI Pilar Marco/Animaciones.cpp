@@ -17,16 +17,14 @@ void Animaciones::setTexturesAnimacion2()
 }
 void Animaciones::setTexturesAnimacion3()
 {
-    enemigo3frame1.loadFromFile("en3frame2.png");
-    enemigo3frame2.loadFromFile("en3frame3.png");
-    enemigo3frame3.loadFromFile("en3frame4.png");
-    enemigo3frame4.loadFromFile("en3frame5.png");
-    enemigo3frame5.loadFromFile("en3frame6.png");
+    enemigo3frame1.loadFromFile("en3frame1.png");
+    enemigo3frame2.loadFromFile("en3frame2.png");
     texturenormal3.loadFromFile("Enemigo3.png");
 }
 void Animaciones::setTexturesAnimacion4()
 {
     enemigo4frame1.loadFromFile("en4frame1.png");
+    enemigo4frame2.loadFromFile("en4frame2.png");
     texturenormal4.loadFromFile("Enemigo4.png");
 }
 void Animaciones::setTexturaEnemigo1Inicial(Sprite _enemigo1)
@@ -72,9 +70,6 @@ void Animaciones::enemigo3animado(Sprite& _enemigo3)
     {
         if (_enemigo3.getTexture() == &texturenormal3) { _enemigo3.setTexture(enemigo3frame1); cantidadcambiostextura3++; }
         else if (_enemigo3.getTexture() == &enemigo3frame1) { _enemigo3.setTexture(enemigo3frame2); cantidadcambiostextura3++; }
-        else if (_enemigo3.getTexture() == &enemigo3frame2) { _enemigo3.setTexture(enemigo3frame3); cantidadcambiostextura3++; }
-        else if (_enemigo3.getTexture() == &enemigo3frame3) { _enemigo3.setTexture(enemigo3frame4); cantidadcambiostextura3++; }
-        else if (_enemigo3.getTexture() == &enemigo3frame4) { _enemigo3.setTexture(enemigo3frame5); cantidadcambiostextura3++; }
         else { _enemigo3.setTexture(texturenormal3); cantidadcambiostextura3++; }
         clockanimacion.restart();
     }
@@ -84,7 +79,7 @@ void Animaciones::enemigo4animado(Sprite& _enemigo4)
     if (clockanimacion.getElapsedTime().asSeconds() >= duracionframe1)
     {
         if (_enemigo4.getTexture() == &texturenormal4) { _enemigo4.setTexture(enemigo4frame1); cantidadcambiostextura4++; }
- 
+        else if (_enemigo4.getTexture() == &enemigo4frame1) { _enemigo4.setTexture(enemigo4frame2); cantidadcambiostextura4++; }
         else { _enemigo4.setTexture(texturenormal4); cantidadcambiostextura4++; }
         clockanimacion.restart();
     }

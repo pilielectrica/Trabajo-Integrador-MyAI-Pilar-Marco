@@ -21,18 +21,53 @@ int main() {
 	Music music;
 	bool disparosobrenemigo1 = false;
 	bool disparosobrenemigo2 = false;
+	bool disparosobrenemigo3 = false;
+	bool disparosobrenemigo4 = false;
 	Clock enemigohamuerto;
 	int tiempotranscurrido = 1.5;
 	bool enemigomuerto = false;
 	int score = 0;
 	bool ganaste = false;
 
-	if (!music.openFromFile("PrimerNivelSTTSok.ogg"))
+	if (!music.openFromFile("joy.ogg"))
 	{
 		return -1;
 	}// error}
+	music.setVolume(50);
 	music.play();
 	music.setLoop(true);
+	SoundBuffer buffer;
+	SoundBuffer buffer2;
+	SoundBuffer buffer3;
+	SoundBuffer buffer4;
+	SoundBuffer buffer5;
+	SoundBuffer buffer6;
+	if (!buffer.loadFromFile("gun1.ogg"))
+		return -1;
+	if (!buffer2.loadFromFile("gun2.ogg"))
+		return -1;
+	if (!buffer3.loadFromFile("gun3.ogg"))
+		return -1;
+	if (!buffer4.loadFromFile("gun4.ogg"))
+		return -1;
+	if (!buffer5.loadFromFile("inocentemuere.ogg"))
+		return -1;
+	if (!buffer6.loadFromFile("enemigomuere.ogg"))
+		return -1;
+
+	Sound inocente;
+	inocente.setBuffer(buffer5);
+	Sound enemigo;
+	enemigo.setBuffer(buffer6);
+	Sound gun1;
+	gun1.setBuffer(buffer);
+	Sound gun2;
+	gun2.setBuffer(buffer2);
+	Sound gun3;
+	gun3.setBuffer(buffer3);
+	Sound gun4;
+	gun4.setBuffer(buffer4);
+	Sound sonidos[4] = { gun1,gun2,gun3,gun4 };
 	
 	
 
@@ -56,9 +91,26 @@ int main() {
 				break;
 			case Event::MouseButtonPressed:
 				//cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
+				int i = (rand() % 4);
+				sonidos[i].play();
 				break;
 
 			}
+			if (jugar.dibujarInocente1().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y) ||
+				jugar.dibujarInocente2().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y) || 
+				jugar.dibujarInocente3().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y) || 
+				jugar.dibujarInocente4().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y) || 
+				jugar.dibujarInocente5().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y) )
+			{
+				if (evt.type == Event::MouseButtonPressed)
+				{
+					cout << "matamos un inocente" << endl;
+					
+					score -= 1;
+					inocente.play();
+				}
+			}
+
 			if (jugar.dibujarEnemigo1().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
 			{
 				if (evt.type == Event::MouseButtonPressed)
@@ -66,10 +118,7 @@ int main() {
 					cout << "matamos un enemigo" << endl;						
 					disparosobrenemigo1 = true;								
 					score += 1;
-					if (score >= 20)
-					{
-						ganaste = true;
-					}
+					enemigo.play();
 				}
 			}
 			if (jugar.dibujarEnemigo2().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
@@ -79,10 +128,25 @@ int main() {
 					cout << "matamos un enemigo" << endl;
 					disparosobrenemigo2 = true;
 					score += 1;
-					if (score >= 20)
-					{
-						ganaste = true;
-					}
+					enemigo.play();
+				}
+			}
+			if (jugar.dibujarEnemigo3().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+			{
+				if (evt.type == Event::MouseButtonPressed)
+				{
+					cout << "matamos un enemigo" << endl;
+					disparosobrenemigo3 = true;
+					enemigo.play();
+				}
+			}
+			if (jugar.dibujarEnemigo4().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+			{
+				if (evt.type == Event::MouseButtonPressed)
+				{
+					cout << "matamos un enemigo" << endl;
+					disparosobrenemigo4 = true;
+					enemigo.play();
 				}
 			}
 			
@@ -92,6 +156,11 @@ int main() {
 			jugar.enemigo1Muere();			
 		}if (disparosobrenemigo2 == true) {
 			jugar.enemigo2Muere();
+		}if (disparosobrenemigo3 == true) {
+			jugar.enemigo3Muere();
+		}
+		if (disparosobrenemigo4 == true) {
+			jugar.enemigo4Muere();
 		}
 	
 
@@ -121,6 +190,9 @@ int main() {
 			App.draw(jugar.dibujarInocente1());
 			App.draw(jugar.dibujarInocente2());
 			App.draw(jugar.dibujarInocente3());
+			App.draw(jugar.dibujarInocente4());
+			App.draw(jugar.dibujarInocente5());
+			App.draw(jugar.dibujarEnemigo4());
 			App.draw(jugar.dibujarEnemigo3());
 			App.draw(_crosshair.mostrarsprite());
 			
