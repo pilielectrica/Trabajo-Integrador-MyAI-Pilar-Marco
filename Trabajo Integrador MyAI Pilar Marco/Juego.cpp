@@ -249,14 +249,3 @@ void Juego::enemigo4Muere()
 	}
 	clockenemigomurio4.restart();
 }
-
-/*void Juego::setPosicionesIniciales()
-{
-	dibujarEnemigo1().setPosition(6000, 6000);
-	dibujarEnemigo2().setPosition(6000, 6000);
-	dibujarEnemigo3().setPosition(6000, 6000);
-	dibujarEnemigo4().setPosition(6000, 6000);
-	dibujarInocente1().setPosition(6000, 6000);
-	dibujarInocente2().setPosition(6000, 6000);
-	dibujarInocente3().setPosition(6000, 6000);
-}*/

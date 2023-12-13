@@ -37,8 +37,6 @@ private:
 	Clock clockenemigomurio4 = Clock();
 	int tiempoenemigomurio = 1.5;
 	bool clockfrenado = false;
-	bool enemigomuere = false;
-	bool empezardenuevo = false;
 public:
 	Juego();
 	void mostrarPersonajes();
@@ -56,13 +54,9 @@ public:
 	void enemigo2Muere();
 	void enemigo3Muere();
 	void enemigo4Muere();
-	void frenarClock();
-	void setCantidadCambiosTextura();
 	int getCantidadCambiosTextura();
-	bool getEndAnimacion();
 	bool enemigo1murio = false;
 	bool enemigo2murio = false;
-	void setPosicionesIniciales();
 	
 };
 
