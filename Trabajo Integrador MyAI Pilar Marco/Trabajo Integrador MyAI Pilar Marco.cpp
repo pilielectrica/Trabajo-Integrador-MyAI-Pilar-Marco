@@ -1,7 +1,9 @@
 #include "crosshair.h"
 #include "enemigo.h"
+#include "textos.h"
 #include "castillo.h"
 #include "juego.h"
+#include "audio.h"
 #include "animaciones.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -18,58 +20,21 @@ int main() {
 	Castillo _castillo;
 	_castillo.setCastillo();
 	Juego jugar;
-	Music music;
+	
 	bool disparosobrenemigo1 = false;
 	bool disparosobrenemigo2 = false;
 	bool disparosobrenemigo3 = false;
 	bool disparosobrenemigo4 = false;
-	Clock enemigohamuerto;
-	int tiempotranscurrido = 1.5;
-	bool enemigomuerto = false;
 	int score = 0;
+	int vidas = 3;
+	bool enemigo1muere = false;
+	bool enemigo2muere = false;
+	bool enemigo3muere = false;
+	bool enemigo4muere = false;
 	bool ganaste = false;
-
-	if (!music.openFromFile("joy.ogg"))
-	{
-		return -1;
-	}// error}
-	music.setVolume(50);
-	music.play();
-	music.setLoop(true);
-	SoundBuffer buffer;
-	SoundBuffer buffer2;
-	SoundBuffer buffer3;
-	SoundBuffer buffer4;
-	SoundBuffer buffer5;
-	SoundBuffer buffer6;
-	if (!buffer.loadFromFile("gun1.ogg"))
-		return -1;
-	if (!buffer2.loadFromFile("gun2.ogg"))
-		return -1;
-	if (!buffer3.loadFromFile("gun3.ogg"))
-		return -1;
-	if (!buffer4.loadFromFile("gun4.ogg"))
-		return -1;
-	if (!buffer5.loadFromFile("inocentemuere.ogg"))
-		return -1;
-	if (!buffer6.loadFromFile("enemigomuere.ogg"))
-		return -1;
-
-	Sound inocente;
-	inocente.setBuffer(buffer5);
-	Sound enemigo;
-	enemigo.setBuffer(buffer6);
-	Sound gun1;
-	gun1.setBuffer(buffer);
-	Sound gun2;
-	gun2.setBuffer(buffer2);
-	Sound gun3;
-	gun3.setBuffer(buffer3);
-	Sound gun4;
-	gun4.setBuffer(buffer4);
-	Sound sonidos[4] = { gun1,gun2,gun3,gun4 };
-	
-	
+	Textos texto;
+	Audio audio;
+	audio.setandgetMusic();
 
 	sf::RenderWindow App(sf::VideoMode(1366, 768, 32),
 		"Que ventana horrible");
@@ -91,8 +56,7 @@ int main() {
 				break;
 			case Event::MouseButtonPressed:
 				//cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
-				int i = (rand() % 4);
-				sonidos[i].play();
+				audio.playgun();
 				break;
 
 			}
@@ -107,7 +71,8 @@ int main() {
 					cout << "matamos un inocente" << endl;
 					
 					score -= 1;
-					inocente.play();
+					vidas -= 1;
+					audio.playinocente();
 				}
 			}
 
@@ -117,8 +82,9 @@ int main() {
 				{
 					cout << "matamos un enemigo" << endl;						
 					disparosobrenemigo1 = true;								
-					score += 1;
-					enemigo.play();
+					score += 1; enemigo1muere = true;
+					audio.playenemigo();
+					
 				}
 			}
 			if (jugar.dibujarEnemigo2().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
@@ -127,8 +93,8 @@ int main() {
 				{
 					cout << "matamos un enemigo" << endl;
 					disparosobrenemigo2 = true;
-					score += 1;
-					enemigo.play();
+					score += 1; enemigo2muere = true;
+					audio.playenemigo();
 				}
 			}
 			if (jugar.dibujarEnemigo3().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
@@ -137,7 +103,8 @@ int main() {
 				{
 					cout << "matamos un enemigo" << endl;
 					disparosobrenemigo3 = true;
-					enemigo.play();
+					score += 1; enemigo3muere = true;
+					audio.playenemigo();
 				}
 			}
 			if (jugar.dibujarEnemigo4().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
@@ -146,47 +113,47 @@ int main() {
 				{
 					cout << "matamos un enemigo" << endl;
 					disparosobrenemigo4 = true;
-					enemigo.play();
+					score += 1; enemigo4muere = true;
+					audio.playenemigo();
 				}
 			}
 			
 		}
 		jugar.mostrarPersonajes();
 		if (disparosobrenemigo1 == true) {
-			jugar.enemigo1Muere();			
+			jugar.enemigo1Muere();	
 		}if (disparosobrenemigo2 == true) {
-			jugar.enemigo2Muere();
+			jugar.enemigo2Muere(); 
 		}if (disparosobrenemigo3 == true) {
-			jugar.enemigo3Muere();
+			jugar.enemigo3Muere(); 
 		}
 		if (disparosobrenemigo4 == true) {
-			jugar.enemigo4Muere();
+			jugar.enemigo4Muere(); 
 		}
-	
+		
+		if (enemigo1muere == true && enemigo2muere == true && enemigo3muere == true && enemigo4muere == true) { ganaste = true; }
+		if (score == -1) { score = 0; }
 
-		/*if (ganaste)
+		if (ganaste)
 		{
 
 			App.clear();
-			Text textoGanaste("GANASTE", font, 36);
-			textoGanaste.setFillColor(Color::White);
-			textoGanaste.setPosition(200, 200);
-			App.draw(textoGanaste);
+			App.draw(texto.getMensajeGanaste());
+			App.display();
+		}
+		else if (vidas == 0)
+		{  App.clear();
+			App.draw(texto.getMensajePerdiste());
 			App.display();
 		}
 		else
-		{*/
+		{
 			App.clear();
-
 			
-			//App.draw(_crosshair.mostrarsprite());
-			//mensajepuntos.setString("Puntaje: " + to_string(score));
-			//App.draw(mensajepuntos);
-			// Mostramos la ventana
 			App.draw(_castillo.getFondo());
-			App.draw(_castillo.getCastillo());			
+			App.draw(_castillo.getCastillo());
 			App.draw(jugar.dibujarEnemigo1());
-			App.draw(jugar.dibujarEnemigo2());		
+			App.draw(jugar.dibujarEnemigo2());
 			App.draw(jugar.dibujarInocente1());
 			App.draw(jugar.dibujarInocente2());
 			App.draw(jugar.dibujarInocente3());
@@ -194,10 +161,12 @@ int main() {
 			App.draw(jugar.dibujarInocente5());
 			App.draw(jugar.dibujarEnemigo4());
 			App.draw(jugar.dibujarEnemigo3());
-			App.draw(_crosshair.mostrarsprite());
-			
-			App.display();
+			App.draw(_crosshair.mostrarsprite());texto.getMensajePuntos(score); 
+			App.draw(texto.getMensajePuntos(score));texto.getMensajeVidas(vidas);
+			App.draw(texto.getMensajeVidas(vidas));
 
+			App.display();
+		}
 		//}
 
 

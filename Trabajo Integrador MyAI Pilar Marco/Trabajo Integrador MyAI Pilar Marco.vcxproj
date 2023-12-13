@@ -133,16 +133,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animaciones.cpp" />
+    <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Castillo.cpp" />
     <ClCompile Include="Crosshair.cpp" />
     <ClCompile Include="Enemigo.cpp" />
     <ClCompile Include="Inocentes.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Jugador.cpp" />
+    <ClCompile Include="Textos.cpp" />
     <ClCompile Include="Trabajo Integrador MyAI Pilar Marco.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animaciones.h" />
+    <ClInclude Include="Audio.h" />
     <ClInclude Include="Castillo.h" />
     <ClInclude Include="Crosshair.h" />
     <ClInclude Include="Enemigo.h" />
@@ -150,6 +153,7 @@
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Textos.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Trabajo Integrador MyAI Pilar Marco.rc" />
