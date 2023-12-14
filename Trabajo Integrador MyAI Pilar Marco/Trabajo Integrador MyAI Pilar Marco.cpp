@@ -32,6 +32,7 @@ int main() {
 	bool enemigo3muere = false;
 	bool enemigo4muere = false;
 	bool ganaste = false;
+	bool inicio = true;
 	Textos texto;
 	Audio audio;
 	audio.setandgetMusic();
@@ -56,7 +57,7 @@ int main() {
 				break;
 			case Event::MouseButtonPressed:
 				//cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
-				audio.playgun();
+				audio.playgun(); inicio = false;
 				break;
 
 			}
@@ -79,7 +80,8 @@ int main() {
 			if (jugar.dibujarEnemigo1().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
 			{
 				if (evt.type == Event::MouseButtonPressed)
-				{
+				{   
+					
 					cout << "matamos un enemigo" << endl;						
 					disparosobrenemigo1 = true;								
 					score += 1; enemigo1muere = true;
@@ -133,8 +135,12 @@ int main() {
 		
 		if (enemigo1muere == true && enemigo2muere == true && enemigo3muere == true && enemigo4muere == true) { ganaste = true; }
 		if (score == -1) { score = 0; }
-
-		if (ganaste)
+		if (inicio)
+		{ 
+		App.clear(); App.draw(texto.getTitulo()); App.draw(texto.getInstruccion1()); 
+		App.draw(texto.getInstruccion2()); App.display(); if (!inicio) { App.close(); }
+		}
+		else if (ganaste)
 		{
 
 			App.clear();

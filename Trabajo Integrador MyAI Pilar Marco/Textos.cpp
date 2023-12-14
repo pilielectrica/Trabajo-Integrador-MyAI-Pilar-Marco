@@ -16,6 +16,26 @@ Text Textos::getMensajePerdiste()
 	perdiste.setPosition(600, 300);
 	return perdiste;
 }
+Text Textos::getTitulo()
+{
+	Text titulo(" INSTRUCCIONES:", font, 50);
+	titulo.setPosition(600, 100);
+	return titulo;
+}
+Text Textos::getInstruccion1()
+{
+	Text instruccion1("- Dispara a los enemigos, suma puntos y gana cuando los elimines a todos.", font, 30);
+	instruccion1.setPosition(100, 500);
+	return instruccion1;
+}
+Text Textos::getInstruccion2()
+{
+	Text instruccion2("- No mates a un inocente o perderás una de tus 3 vidas y un punto.", font, 30);
+	instruccion2.setPosition(100, 300);
+	return instruccion2;
+}
+
+
 void Textos::setFont()
 {
 	font.loadFromFile("SIXTY.TTF");

@@ -15,10 +15,15 @@ public:
 	void setFont();
 	void setMensajePuntos();
 	void setMensajeVidas();
+	void setInstrucciones();
 	Text getMensajeGanaste();
+	Text getTitulo();	
 	Text getMensajePerdiste();
 	Text getMensajePuntos(int s);
 	Text getMensajeVidas(int v);
+	Text getInstruccion1();
+	Text getInstruccion2();
+
 	Textos();
 	
 	
