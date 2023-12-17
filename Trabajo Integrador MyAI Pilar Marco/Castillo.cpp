@@ -21,3 +21,121 @@ void Castillo :: setCastillo()
 	fondo.setScale(3.7, 3.5);
 
 }
+void Castillo::setAnimationSuncloud()
+{
+	
+	suncloud2.loadFromFile("cloudsun2.png");
+	suncloud3.loadFromFile("cloudsun3.png");
+	suncloud4.loadFromFile("cloudsun4.png");
+	
+	
+}
+void Castillo::animacionSuncloud()
+{
+	if (clockanimacion.getElapsedTime().asSeconds() >= duracionframe)
+	{
+		if (suncloud.getTexture() == &suncloud1) { suncloud.setTexture(suncloud2); }
+		else if (suncloud.getTexture() == &suncloud2) { suncloud.setTexture(suncloud3); }
+		else if (suncloud.getTexture() == &suncloud3) { suncloud.setTexture(suncloud4); }
+		else { suncloud.setTexture(suncloud1);}
+		clockanimacion.restart();
+	}
+}
+void Castillo::animacionCloud()
+{
+	if (clockanimacion2.getElapsedTime().asSeconds() >= duracionframe)
+	{
+		if (nube1.getTexture() == &cloud1) { nube1.setTexture(cloud2); }
+		else if (nube1.getTexture() == &cloud2) { nube1.setTexture(cloud3); }
+		else if (nube1.getTexture() == &cloud3) { nube1.setTexture(cloud4); }
+		else { nube1.setTexture(cloud1); }
+		clockanimacion2.restart();
+	}
+}
+void Castillo::animacionCloud2()
+{
+	if (clockanimacion3.getElapsedTime().asSeconds() >= duracionframe)
+	{
+		if (nube2.getTexture() == &cloud1) { nube2.setTexture(cloud2); }
+		else if (nube2.getTexture() == &cloud2) { nube2.setTexture(cloud3); }
+		else if (nube2.getTexture() == &cloud3) { nube2.setTexture(cloud4); }
+		else { nube2.setTexture(cloud1); }
+		clockanimacion3.restart();
+	}
+}
+void Castillo::animacionCloud3()
+{
+	if (clockanimacion4.getElapsedTime().asSeconds() >= duracionframe)
+	{
+		if (nube3.getTexture() == &cloud1) { nube3.setTexture(cloud2); }
+		else if (nube3.getTexture() == &cloud2) { nube3.setTexture(cloud3); }
+		else if (nube3.getTexture() == &cloud3) { nube3.setTexture(cloud4); }
+		else { nube3.setTexture(cloud1); }
+		clockanimacion4.restart();
+	}
+}
+void Castillo::animacionCloud4()
+{
+	if (clockanimacion5.getElapsedTime().asSeconds() >= duracionframe)
+	{
+		if (nube4.getTexture() == &cloud1) { nube4.setTexture(cloud2); }
+		else if (nube4.getTexture() == &cloud2) { nube4.setTexture(cloud3); }
+		else if (nube4.getTexture() == &cloud3) { nube4.setTexture(cloud4); }
+		else { nube4.setTexture(cloud1); }
+		clockanimacion5.restart();
+	}
+}
+void Castillo::setSunCloud()
+{   
+	suncloud1.loadFromFile("cloudsun1.png");
+	suncloud.setTexture(suncloud1);
+	suncloud.setPosition(200, 200);
+	suncloud.setScale(0.5, 0.5);
+}
+Sprite Castillo::getSunCloud()
+{
+	return suncloud;
+}
+
+void Castillo::setNubes()
+{
+	cloud1.loadFromFile("cloud1.png");
+	cloud2.loadFromFile("cloud2.png");
+	cloud3.loadFromFile("cloud3.png");
+	cloud4.loadFromFile("cloud4.png");
+	nube1.setTexture(cloud1);
+	nube2.setTexture(cloud1);
+	nube3.setTexture(cloud1);
+	nube4.setTexture(cloud1);
+	nube1.setScale(0.5, 0.5);
+	nube2.setScale(0.5, 0.5);
+	nube3.setScale(0.5, 0.5);
+	nube4.setScale(0.5, 0.5);
+	nube1.setPosition(1118, 148);
+	nube2.setPosition(900, 146);
+	nube3.setPosition(450, 137);
+	nube4.setPosition(962, 372);
+}
+Sprite& Castillo::getCloud1()
+{
+	return nube1;
+}
+Sprite& Castillo::getCloud2()
+{
+	return nube2;
+}
+Sprite& Castillo::getCloud3()
+{
+	return nube3;
+}
+Sprite& Castillo::getCloud4()
+{
+	return nube4;
+}
+Castillo::Castillo()
+{
+	setAnimationSuncloud();
+	setSunCloud();
+	setNubes();
+	
+}

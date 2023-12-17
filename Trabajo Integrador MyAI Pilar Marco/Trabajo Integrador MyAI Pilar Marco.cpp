@@ -19,6 +19,7 @@ int main() {
 	_crosshair.seteartexturacrosshair();
 	Castillo _castillo;
 	_castillo.setCastillo();
+	
 	Juego jugar;
 	
 	bool disparosobrenemigo1 = false;
@@ -56,7 +57,7 @@ int main() {
 				_crosshair.actualizarPosicionCursor(evt.mouseMove.x, evt.mouseMove.y);
 				break;
 			case Event::MouseButtonPressed:
-				//cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
+				cout << crosshairPosition.x << endl << crosshairPosition.y << endl;
 				audio.playgun(); inicio = false;
 				break;
 
@@ -121,6 +122,12 @@ int main() {
 			}
 			
 		}
+		
+		_castillo.animacionSuncloud();
+		_castillo.animacionCloud();
+		_castillo.animacionCloud2();
+		_castillo.animacionCloud3();
+		_castillo.animacionCloud4();
 		jugar.mostrarPersonajes();
 		if (disparosobrenemigo1 == true) {
 			jugar.enemigo1Muere();	
@@ -158,6 +165,7 @@ int main() {
 			
 			App.draw(_castillo.getFondo());
 			App.draw(_castillo.getCastillo());
+			
 			App.draw(jugar.dibujarEnemigo1());
 			App.draw(jugar.dibujarEnemigo2());
 			App.draw(jugar.dibujarInocente1());
@@ -167,6 +175,11 @@ int main() {
 			App.draw(jugar.dibujarInocente5());
 			App.draw(jugar.dibujarEnemigo4());
 			App.draw(jugar.dibujarEnemigo3());
+			App.draw(_castillo.getSunCloud());
+			App.draw(_castillo.getCloud1());
+			App.draw(_castillo.getCloud2());
+			App.draw(_castillo.getCloud3());
+			App.draw(_castillo.getCloud4());
 			App.draw(_crosshair.mostrarsprite());texto.getMensajePuntos(score); 
 			App.draw(texto.getMensajePuntos(score));texto.getMensajeVidas(vidas);
 			App.draw(texto.getMensajeVidas(vidas));

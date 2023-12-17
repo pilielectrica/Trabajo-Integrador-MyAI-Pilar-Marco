@@ -163,7 +163,7 @@ void Juego::mostrarPersonajes()
 	
 
 				inocente5.setPositionInocente5(coordenadax, coordenaday);
-				randomclock = (rand() % 600 + 200) / 1000.0f;
+				randomclock = (rand() % 900 + 200) / 1000.0f;
 			clock.restart();
 
 			}
