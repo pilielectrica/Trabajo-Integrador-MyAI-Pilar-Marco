@@ -41,50 +41,7 @@ void Castillo::animacionSuncloud()
 		clockanimacion.restart();
 	}
 }
-void Castillo::animacionCloud()
-{
-	if (clockanimacion2.getElapsedTime().asSeconds() >= duracionframe)
-	{
-		if (nube1.getTexture() == &cloud1) { nube1.setTexture(cloud2); }
-		else if (nube1.getTexture() == &cloud2) { nube1.setTexture(cloud3); }
-		else if (nube1.getTexture() == &cloud3) { nube1.setTexture(cloud4); }
-		else { nube1.setTexture(cloud1); }
-		clockanimacion2.restart();
-	}
-}
-void Castillo::animacionCloud2()
-{
-	if (clockanimacion3.getElapsedTime().asSeconds() >= duracionframe)
-	{
-		if (nube2.getTexture() == &cloud1) { nube2.setTexture(cloud2); }
-		else if (nube2.getTexture() == &cloud2) { nube2.setTexture(cloud3); }
-		else if (nube2.getTexture() == &cloud3) { nube2.setTexture(cloud4); }
-		else { nube2.setTexture(cloud1); }
-		clockanimacion3.restart();
-	}
-}
-void Castillo::animacionCloud3()
-{
-	if (clockanimacion4.getElapsedTime().asSeconds() >= duracionframe)
-	{
-		if (nube3.getTexture() == &cloud1) { nube3.setTexture(cloud2); }
-		else if (nube3.getTexture() == &cloud2) { nube3.setTexture(cloud3); }
-		else if (nube3.getTexture() == &cloud3) { nube3.setTexture(cloud4); }
-		else { nube3.setTexture(cloud1); }
-		clockanimacion4.restart();
-	}
-}
-void Castillo::animacionCloud4()
-{
-	if (clockanimacion5.getElapsedTime().asSeconds() >= duracionframe)
-	{
-		if (nube4.getTexture() == &cloud1) { nube4.setTexture(cloud2); }
-		else if (nube4.getTexture() == &cloud2) { nube4.setTexture(cloud3); }
-		else if (nube4.getTexture() == &cloud3) { nube4.setTexture(cloud4); }
-		else { nube4.setTexture(cloud1); }
-		clockanimacion5.restart();
-	}
-}
+
 void Castillo::setSunCloud()
 {   
 	suncloud1.loadFromFile("cloudsun1.png");
