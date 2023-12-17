@@ -8,6 +8,7 @@
 Juego::Juego() : enemigo1(),enemigo2(),inocente1(),inocente4(),inocente5(),enemigo3(),enemigo4(), animacionenemigo1(0.5), animacionenemigo2(0.5), animacionenemigo3(0.5), animacionenemigo4(0.5)
 {
 	//setPosicionesIniciales();
+	setBang();
 }
 Sprite Juego::dibujarEnemigo1()
 {
@@ -229,6 +230,7 @@ void Juego::enemigo3Muere()
 		animacionenemigo3.setTexturaEnemigo3Inicial(enemigo3.getEnemigo3());
 		clockfrenado = false;
 		enemigo3.setPositionEnemigo3(7000, 8000);
+		enemigo3murio = true;
 	}
 	clockenemigomurio3.restart();
 }
@@ -246,6 +248,36 @@ void Juego::enemigo4Muere()
 		animacionenemigo4.setTexturaEnemigo4Inicial(enemigo4.getEnemigo4());
 		clockfrenado = false;
 		enemigo4.setPositionEnemigo4(7000, 8000);
+		enemigo4murio = true;
 	}
 	clockenemigomurio4.restart();
+}
+void Juego::setBang()
+{
+	
+	texturebang.loadFromFile("boom.png");
+	bang.setTexture(texturebang);
+	bang.setPosition(6000, 6000);
+}
+Sprite Juego::getBang()
+{
+	return bang;
+}
+void Juego::enemigoAtaca()
+{
+
+	float tiempopasado = clockbang.getElapsedTime().asSeconds();
+	float tiempoespera = 25;
+	if (tiempopasado >= tiempoespera && tiempopasado < 27) {
+		clockfrenado = true; bang.setPosition(600, 300); cout << "dibujando" << endl;
+		if (enemigo1murio == false) { enemigo1.setPositionEnemigo1(680, 658); }
+		if (enemigo2murio == false) { enemigo2.setPositionEnemigo2(650, 658); }
+		if (enemigo3murio == false) { enemigo3.setPositionEnemigo3(614, 658); }
+		if (enemigo4murio == false) { enemigo4.setPositionEnemigo4(709, 658); }
+	}
+		else if (tiempopasado >= 27) { clockfrenado = false; bang.setPosition(7000, 7000); clockbang.restart(); }
+}
+bool Juego::getClockFrenado()
+{
+	return clockfrenado;
 }

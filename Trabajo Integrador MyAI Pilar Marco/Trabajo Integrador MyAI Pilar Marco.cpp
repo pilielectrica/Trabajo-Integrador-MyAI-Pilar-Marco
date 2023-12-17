@@ -34,9 +34,12 @@ int main() {
 	bool enemigo4muere = false;
 	bool ganaste = false;
 	bool inicio = true;
+	
 	Textos texto;
 	Audio audio;
 	audio.setandgetMusic();
+
+	
 
 	sf::RenderWindow App(sf::VideoMode(1366, 768, 32),
 		"Que ventana horrible");
@@ -78,7 +81,7 @@ int main() {
 				}
 			}
 
-			if (jugar.dibujarEnemigo1().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+			if (jugar.dibujarEnemigo1().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y)&& jugar.getClockFrenado() == false)
 			{
 				if (evt.type == Event::MouseButtonPressed)
 				{   
@@ -90,7 +93,7 @@ int main() {
 					
 				}
 			}
-			if (jugar.dibujarEnemigo2().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+			if (jugar.dibujarEnemigo2().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y)&& jugar.getClockFrenado() == false)
 			{
 				if (evt.type == Event::MouseButtonPressed)
 				{
@@ -100,7 +103,7 @@ int main() {
 					audio.playenemigo();
 				}
 			}
-			if (jugar.dibujarEnemigo3().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+			if (jugar.dibujarEnemigo3().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y) && jugar.getClockFrenado() == false)
 			{
 				if (evt.type == Event::MouseButtonPressed)
 				{
@@ -110,7 +113,7 @@ int main() {
 					audio.playenemigo();
 				}
 			}
-			if (jugar.dibujarEnemigo4().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y))
+			if (jugar.dibujarEnemigo4().getGlobalBounds().contains(crosshairPosition.x, crosshairPosition.y) && jugar.getClockFrenado() == false)
 			{
 				if (evt.type == Event::MouseButtonPressed)
 				{
@@ -122,7 +125,6 @@ int main() {
 			}
 			
 		}
-		
 		_castillo.animacionSuncloud();
 		jugar.mostrarPersonajes();
 		if (disparosobrenemigo1 == true) {
@@ -158,10 +160,10 @@ int main() {
 		else
 		{
 			App.clear();
-			
+
 			App.draw(_castillo.getFondo());
 			App.draw(_castillo.getCastillo());
-			
+
 			App.draw(jugar.dibujarEnemigo1());
 			App.draw(jugar.dibujarEnemigo2());
 			App.draw(jugar.dibujarInocente1());
@@ -171,7 +173,8 @@ int main() {
 			App.draw(jugar.dibujarInocente5());
 			App.draw(jugar.dibujarEnemigo4());
 			App.draw(jugar.dibujarEnemigo3());
-			App.draw(_castillo.getSunCloud());
+			App.draw(_castillo.getSunCloud());jugar.enemigoAtaca();
+			App.draw(jugar.getBang());
 			App.draw(_crosshair.mostrarsprite());texto.getMensajePuntos(score); 
 			App.draw(texto.getMensajePuntos(score));texto.getMensajeVidas(vidas);
 			App.draw(texto.getMensajeVidas(vidas));

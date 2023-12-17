@@ -17,6 +17,8 @@ private:
 	Enemigo enemigo2;
 	Enemigo enemigo3;
 	Enemigo enemigo4;
+	Sprite bang;
+	Texture texturebang;
 	Inocentes inocente1;
 	Inocentes inocente2;
 	Inocentes inocente3;
@@ -37,6 +39,7 @@ private:
 	Clock clockenemigomurio4 = Clock();
 	int tiempoenemigomurio = 1.5;
 	bool clockfrenado = false;
+	Clock clockbang = Clock();
 public:
 	Juego();
 	void mostrarPersonajes();
@@ -55,8 +58,14 @@ public:
 	void enemigo3Muere();
 	void enemigo4Muere();
 	int getCantidadCambiosTextura();
+	void enemigoAtaca();
 	bool enemigo1murio = false;
 	bool enemigo2murio = false;
+	bool enemigo3murio = false;
+	bool enemigo4murio = false;
+	void setBang();
+	Sprite getBang();
+	bool getClockFrenado();
 	
 };
 
