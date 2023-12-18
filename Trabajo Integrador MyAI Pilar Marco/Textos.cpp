@@ -19,7 +19,7 @@ Text Textos::getMensajePerdiste()
 Text Textos::getTitulo()
 {
 	Text titulo(" INSTRUCCIONES:", font, 50);
-	titulo.setPosition(600, 100);
+	titulo.setPosition(400, 100);
 	return titulo;
 }
 Text Textos::getInstruccion1()
@@ -31,10 +31,15 @@ Text Textos::getInstruccion1()
 Text Textos::getInstruccion2()
 {
 	Text instruccion2("- No mates a un inocente o perderás una de tus 3 vidas y un punto.", font, 30);
-	instruccion2.setPosition(100, 300);
+	instruccion2.setPosition(100, 400);
 	return instruccion2;
 }
-
+Text Textos::getInstruccion3()
+{
+	Text instruccion3("- Si un enemigo te dispara perderás una vida", font, 30);
+	instruccion3.setPosition(100, 300);
+	return instruccion3;
+}
 
 void Textos::setFont()
 {
@@ -73,4 +78,5 @@ Textos::Textos()
 	setFont();
 	setMensajePuntos();
 	setMensajeVidas();
+	
 }

@@ -124,7 +124,7 @@ int main() {
 				}
 			}
 			
-		}
+		}if (jugar.getEnemigoDisparo() == true) { vidas -= jugar.getDisparoEnemigo(); }
 		_castillo.animacionSuncloud();
 		jugar.mostrarPersonajes();
 		if (disparosobrenemigo1 == true) {
@@ -143,7 +143,7 @@ int main() {
 		if (inicio)
 		{ 
 		App.clear(); App.draw(texto.getTitulo()); App.draw(texto.getInstruccion1()); 
-		App.draw(texto.getInstruccion2()); App.display(); if (!inicio) { App.close(); }
+		App.draw(texto.getInstruccion2()); App.draw(texto.getInstruccion3()); App.display(); if (!inicio) { App.close(); }
 		}
 		else if (ganaste)
 		{

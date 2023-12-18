@@ -146,7 +146,7 @@ void Juego::mostrarPersonajes()
 				coordenaday = posiciones[p][1];
 
 
-				if (enemigo1murio == true && enemigo2murio == true && (numeroazar == 2 || numeroazar == 3))
+				if (enemigo1murio == true && enemigo2murio == true && (numeroazar == 2 || numeroazar == 3) || numeroazar == 4 || numeroazar==5)
 				{
 					enemigo4.setPositionEnemigo4(coordenadax, coordenaday);
 				}
@@ -268,16 +268,27 @@ void Juego::enemigoAtaca()
 
 	float tiempopasado = clockbang.getElapsedTime().asSeconds();
 	float tiempoespera = 25;
+	if (tiempopasado <= 0.00125) { enemigodisparo = true; }
+	else if (tiempopasado > 0.00125) { enemigodisparo = false; }
 	if (tiempopasado >= tiempoespera && tiempopasado < 27) {
-		clockfrenado = true; bang.setPosition(600, 300); cout << "dibujando" << endl;
+		clockfrenado = true; bang.setPosition(600, 300); 
 		if (enemigo1murio == false) { enemigo1.setPositionEnemigo1(680, 658); }
 		if (enemigo2murio == false) { enemigo2.setPositionEnemigo2(650, 658); }
 		if (enemigo3murio == false) { enemigo3.setPositionEnemigo3(614, 658); }
 		if (enemigo4murio == false) { enemigo4.setPositionEnemigo4(709, 658); }
+		disparoenemigo = 1;
 	}
-		else if (tiempopasado >= 27) { clockfrenado = false; bang.setPosition(7000, 7000); clockbang.restart(); }
+	else if (tiempopasado >= 27) { cout << "disparo enemigo: " << disparoenemigo << endl; clockfrenado = false; bang.setPosition(7000, 7000); clockbang.restart();}
 }
 bool Juego::getClockFrenado()
 {
 	return clockfrenado;
+}
+int Juego::getDisparoEnemigo()
+{
+	return disparoenemigo;
+}
+bool Juego::getEnemigoDisparo()
+{
+	return enemigodisparo;
 }

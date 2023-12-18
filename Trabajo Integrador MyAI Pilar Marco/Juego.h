@@ -28,6 +28,7 @@ private:
 	Animaciones animacionenemigo2;
 	Animaciones animacionenemigo3;
 	Animaciones animacionenemigo4;
+
 	;
 	int posiciones[VENTANAS][COORDENADAS] = { {648,180}, {650,250},{472,387},{598,365},{689,373},{841,390},
 		{468,476},{610,476},{709,476},{856,469},{289,567},{538,571},{783,570},{1030,565} };
@@ -40,6 +41,8 @@ private:
 	int tiempoenemigomurio = 1.5;
 	bool clockfrenado = false;
 	Clock clockbang = Clock();
+	int disparoenemigo = 0;
+	bool enemigodisparo = false;
 public:
 	Juego();
 	void mostrarPersonajes();
@@ -66,6 +69,8 @@ public:
 	void setBang();
 	Sprite getBang();
 	bool getClockFrenado();
+	int getDisparoEnemigo();
+	bool getEnemigoDisparo();
 	
 };
 

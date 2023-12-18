@@ -23,6 +23,7 @@ public:
 	Text getMensajeVidas(int v);
 	Text getInstruccion1();
 	Text getInstruccion2();
+	Text getInstruccion3();
 
 	Textos();
 	
