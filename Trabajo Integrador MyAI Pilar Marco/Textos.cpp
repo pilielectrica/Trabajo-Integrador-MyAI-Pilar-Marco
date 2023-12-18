@@ -25,22 +25,41 @@ Text Textos::getTitulo()
 Text Textos::getInstruccion1()
 {
 	Text instruccion1("- Dispara a los enemigos, suma puntos y gana cuando los elimines a todos.", font, 30);
-	instruccion1.setPosition(100, 500);
+	instruccion1.setPosition(380, 450);
 	return instruccion1;
 }
 Text Textos::getInstruccion2()
 {
 	Text instruccion2("- No mates a un inocente o perderás una de tus 3 vidas y un punto.", font, 30);
-	instruccion2.setPosition(100, 400);
+	instruccion2.setPosition(380, 350);
 	return instruccion2;
 }
 Text Textos::getInstruccion3()
 {
-	Text instruccion3("- Si un enemigo te dispara perderás una vida", font, 30);
-	instruccion3.setPosition(100, 300);
+	Text instruccion3("- Si un enemigo te dispara perderas una vida", font, 30);
+	instruccion3.setPosition(380, 250);
 	return instruccion3;
 }
-
+Text Textos::getInstruccion4()
+{
+	Text instruccion4(" ¡Haz click para jugar!", font, 40);
+	instruccion4.setPosition(400, 600);
+	instruccion4.setFillColor(Color::Red);;
+	return instruccion4;
+}
+Text Textos::getCreditos()
+{
+	Text gamesoundmusic("Game, sound & music", font, 25);	
+	gamesoundmusic.setPosition(900, 600);	
+	return gamesoundmusic;
+	
+}
+Text Textos::getCreditos2()
+{
+	Text nombre("by Pilar Marco", font, 25);
+	nombre.setPosition(900, 620);
+	return nombre;
+}
 void Textos::setFont()
 {
 	font.loadFromFile("SIXTY.TTF");

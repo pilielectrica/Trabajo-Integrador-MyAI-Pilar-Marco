@@ -24,6 +24,9 @@ public:
 	Text getInstruccion1();
 	Text getInstruccion2();
 	Text getInstruccion3();
+	Text getInstruccion4();
+	Text getCreditos();
+	Text getCreditos2();
 
 	Textos();
 	

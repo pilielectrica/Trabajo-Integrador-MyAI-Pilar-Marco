@@ -3,9 +3,10 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Juego.h"
+#include <SFML/Audio.hpp>
 
 
-Juego::Juego() : enemigo1(),enemigo2(),inocente1(),inocente4(),inocente5(),enemigo3(),enemigo4(), animacionenemigo1(0.5), animacionenemigo2(0.5), animacionenemigo3(0.5), animacionenemigo4(0.5)
+Juego::Juego() : enemigo1(),enemigo2(),inocente1(),inocente4(),inocente5(),enemigo3(),enemigo4(), animacionenemigo1(0.5), animacionenemigo2(0.5), animacionenemigo3(0.5), animacionenemigo4(0.5), boom()
 {
 	//setPosicionesIniciales();
 	setBang();
@@ -270,6 +271,7 @@ void Juego::enemigoAtaca()
 	float tiempoespera = 25;
 	if (tiempopasado <= 0.00125) { enemigodisparo = true; }
 	else if (tiempopasado > 0.00125) { enemigodisparo = false; }
+	if (tiempopasado >= tiempoespera && tiempopasado < 26){ boom.playboom(); }
 	if (tiempopasado >= tiempoespera && tiempopasado < 27) {
 		clockfrenado = true; bang.setPosition(600, 300); 
 		if (enemigo1murio == false) { enemigo1.setPositionEnemigo1(680, 658); }

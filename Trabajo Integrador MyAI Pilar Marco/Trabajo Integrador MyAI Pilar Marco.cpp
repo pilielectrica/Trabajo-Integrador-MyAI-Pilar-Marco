@@ -143,7 +143,9 @@ int main() {
 		if (inicio)
 		{ 
 		App.clear(); App.draw(texto.getTitulo()); App.draw(texto.getInstruccion1()); 
-		App.draw(texto.getInstruccion2()); App.draw(texto.getInstruccion3()); App.display(); if (!inicio) { App.close(); }
+		App.draw(texto.getInstruccion2()); App.draw(texto.getInstruccion3());
+		App.draw(texto.getInstruccion4()); App.draw(texto.getCreditos());
+		App.draw(texto.getCreditos2()); App.display(); if (!inicio) { App.close(); }
 		}
 		else if (ganaste)
 		{
@@ -152,7 +154,7 @@ int main() {
 			App.draw(texto.getMensajeGanaste());
 			App.display();
 		}
-		else if (vidas == 0)
+		else if (vidas <= 0)
 		{  App.clear();
 			App.draw(texto.getMensajePerdiste());
 			App.display();

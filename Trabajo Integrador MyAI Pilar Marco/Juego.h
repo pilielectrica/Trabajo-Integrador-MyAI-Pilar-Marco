@@ -3,7 +3,9 @@
 #include <iostream>
 #include "enemigo.h"
 #include "inocentes.h"
+#include "audio.h"
 #include "animaciones.h"
+
 #define VENTANAS 14
 #define COORDENADAS 2
 using namespace sf;
@@ -28,6 +30,7 @@ private:
 	Animaciones animacionenemigo2;
 	Animaciones animacionenemigo3;
 	Animaciones animacionenemigo4;
+	Audio boom;
 
 	;
 	int posiciones[VENTANAS][COORDENADAS] = { {648,180}, {650,250},{472,387},{598,365},{689,373},{841,390},

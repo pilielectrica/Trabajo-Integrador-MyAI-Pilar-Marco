@@ -12,7 +12,9 @@ private:
 	SoundBuffer buffer;
 	SoundBuffer buffer5;
 	SoundBuffer buffer6;
+	SoundBuffer bufferboom;
 	Sound inocente;
+	Sound boom;
 	Sound enemigo;
 	Sound gun1;
 	
@@ -23,6 +25,7 @@ public:
 	void playinocente();
 	void playenemigo();
 	void playgun();
+	void playboom();
 	Audio();
 };
 

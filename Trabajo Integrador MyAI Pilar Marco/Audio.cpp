@@ -18,14 +18,18 @@ bool Audio::setSounds()
 		return -1;
 	if (!buffer6.loadFromFile("enemigomuere.ogg"))
 		return -1;
+	if (!bufferboom.loadFromFile("boom.ogg"))
+		return -1;
 	inocente.setBuffer(buffer5);
 
 	enemigo.setBuffer(buffer6);
 
 	gun1.setBuffer(buffer);
 
+	boom.setBuffer(bufferboom);
 	
 }
+
 void Audio::playenemigo()
 {
 	enemigo.play();
@@ -37,6 +41,10 @@ void Audio::playinocente()
 void Audio::playgun()
 {
 	gun1.play();
+}
+void Audio::playboom()
+{
+	boom.play();
 }
 Audio::Audio()
 {
